@@ -1,5 +1,5 @@
 :root {
-  --cor-click: #1269e277;
+  --cor-click: #126ae2;
   --cor-sombra: #0a599b;
   --cor-text: black;
   --cor-back1: #edf2f4;
@@ -478,7 +478,7 @@ main {
 }
 
 #logo {
-  position: relative;
+  position: relative; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -488,6 +488,26 @@ main {
   .header-inner { padding: 0 8px; }
   .svg_logo { width: 72px; }
   .icoG { font-size: 26px; }
+}
+
+#modal_overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#modal_content {
+  width: 600px;               
+  max-width: 90%;              
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  max-height: 85vh;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 
