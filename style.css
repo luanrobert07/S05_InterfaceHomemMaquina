@@ -493,9 +493,9 @@ main {
 @media (min-width: 900px) {
 
   #modal_overlay {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
+      display: flex;
+      align-items: center ;
+      justify-content: center ;
       padding: 20px;
   }
 
