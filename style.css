@@ -1,16 +1,15 @@
 :root {
-  --cor-click: #126ae2; /* Click */
-  --cor-sombra: #0a599b; /* Azul Escuro */
-  --cor-text: black; /* Preto */
-  --cor-back1: #edf2f4; /* Azul claro */
-  --cor-back2: #6a937a; /* Verde Escuro */
+  --cor-click: #1269e277;
+  --cor-sombra: #0a599b;
+  --cor-text: black;
+  --cor-back1: #edf2f4;
+  --cor-back2: #6a937a;
   
   --md-sys-color-primary: #126ae2;
   --md-sys-color-on-primary: #FFFFFF;
   --md-sys-color-primary-container: #edf2f4;
   --md-sys-color-on-primary-container: #002020;
   
-  /* Variaveis para o componente de aulas (mantidas para o CSS geral) */
   --frequencia: #126ae2;
   --nota: #126ae2;
   --prova: #126ae2;
@@ -23,12 +22,22 @@ body {
 
 @import url(https://fonts.googleapis.com/css?family=Arimo);
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 header {
   position: relative;
   height: 35px;
   top: 0px;
   left: 0px;
-  /* rigth: 0px; -> Corrigido para right */
 }
 
 #menu {
@@ -46,19 +55,86 @@ header {
   transform: translate(-50%);
 }
 
-.svg_logo{
-  width: 80px;
-}
-
-.path_logo{
-  fill: var(--cor-click);
-}
+.svg_logo{ width: 80px; }
+.path_logo{ fill: var(--cor-click); }
 
 #perfil {
   position: absolute;
   right: 0px;
   top: 10px;
   margin-right: 15px;
+  cursor: pointer;
+}
+
+#menu_aba {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  z-index: 200;
+  display: none;
+  border-radius: 10px;
+}
+
+#menu_bot {
+  position: relative;
+  padding: 20px;
+  display: "block";
+  cursor: pointer;
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 14pt;
+  color: var(--cor-click);
+  transition: 0.5s;
+}
+
+.font {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--cor-text)
+}
+
+h3 {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--cor-text);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+p {
+  font-family: "Arimo", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--cor-text);
+  line-height: 1.5;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.material-symbols-outlined {
+  color: var(--cor-click);
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.icoG { font-size: 30px; }
+.icoP { font-size: 18px; }
+.icon {
+  font-size: 15px;
+  margin-left: 5px;
+  margin-right: 2px;
+  width: 18px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 #mensagens {
@@ -71,6 +147,7 @@ header {
   margin: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
 }
 
 #user_name {
@@ -99,62 +176,6 @@ header {
   display: inline-block;
 }
 
-.material-symbols-outlined {
-  color: var(--cor-click);
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-
-.icoG {
-  font-size: 30px;
-}
-
-.icoP {
-  font-size: 18px;
-}
-
-.font {
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  /* font-weight: <weight>; -> Removido */
-  font-style: normal;
-  font-size: 11px;
-  color: var(--cor-text)
-}
-
-#menu_aba {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: white;
-  overflow-x: hidden;
-  transition: 0.5s;
-  z-index: 1;
-  display: none;
-  border-radius: 10px;
-}
-
-#menu_bot {
-  position: relative;
-  padding: 20px;
-  display: "block";
-  cursor: pointer;
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  /* font-weight: <weight>; -> Removido */
-  font-style: normal;
-  font-size: 14pt;
-  color: var(--cor-click);
-  transition: 0.5s;
-}
-
-/* CARROSSEL */
-
 .carousel-container {
   position: relative;
   overflow: hidden;
@@ -162,6 +183,7 @@ header {
   border-radius: 10px;
   margin: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
 }
 
 .carousel {
@@ -176,25 +198,12 @@ header {
 
 .card img {
   width: 100%;
-  /* height: auto; Removido, auto é o padrão*/
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
 
-.info {
-  padding: 10px;
-}
+.info { padding: 10px; }
 
-.icon {
-  font-size: 15px;
-  margin-left: 5px;
-  margin-right: 2px;
-  width: 18px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-/* Estilo para os botões do carrossel */
 .carousel-container button {
   position: absolute;
   top: 30%;
@@ -207,31 +216,281 @@ header {
   font-size: 10px;
   z-index: 10;
 }
-
 #prevBtn { left: 10px; }
 #nextBtn { right: 10px; }
 
-/* Estilos de texto padrão do seu código (também aplicados fora do componente) */
-h3 {
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  /* font-weight: <weight>; -> Removido */
-  font-style: normal;
-  font-size: 14px;
-  color: var(--cor-text);
-  padding-left: 5px;
-  padding-right: 5px;
+.filtros_inovacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 0 5px;
 }
 
-p {
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  /* font-weight: <weight>; -> Removido */
-  font-style: normal;
-  font-size: 11px;
-  color: var(--cor-text);
-  line-height: 1.5;
-  /* orphans: 3; -> Pode ser removido se não for usado para impressão */
-  padding-left: 5px;
-  padding-right: 5px;
+.filtro_bot {
+    padding: 8px 16px;
+    border-radius: 500px;
+    border: 1px solid var(--cor-click);
+    background-color: transparent;
+    color: var(--cor-click);
+    font-family: "Arimo", sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
+
+.filtro_bot:hover,
+.filtro_bot.active {
+    background-color: var(--cor-click);
+    color: white;
+}
+
+.inovacao-card {
+    background-color: white;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.inovacao-card h3 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.inovacao-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.inovacao-status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--cor-text);
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    text-transform: uppercase;
+}
+
+
+.inovacao-actions button {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--cor-click);
+    color: white;
+    font-family: "Arimo", sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.progresso-card {
+    background-color: white;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out;
+    opacity: 0.7;
+}
+.progresso-card h3 {
+    margin-top: 0;
+    font-size: 14px;
+}
+.progresso-status {
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--cor-back2);
+    text-transform: capitalize;
+}
+
+#modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal_content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: calc(100% - 60px);
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: var(--cor-text);
+}
+.modal-header .close-btn {
+    font-size: 30px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+}
+
+.modal-form-group {
+    margin-bottom: 15px;
+}
+.modal-form-group label {
+    display: block;
+    font-family: "Arimo", sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--cor-text);
+}
+.modal-form-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: "Arimo", sans-serif;
+    font-size: 12px;
+}
+
+.modal-rating {
+    margin-top: 15px;
+}
+.modal-rating .star {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.modal-rating .star:hover,
+.modal-rating .star.selected {
+    color: #f39c12;
+}
+
+.modal-button {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--cor-click);
+    color: white;
+    font-family: "Arimo", sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#toast_notification {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2ecc71; 
+    color: white;
+    padding: 14px 25px;
+    border-radius: 500px;
+    font-family: "Arimo", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 300;
+    transition: bottom 0.5s ease-in-out;
+}
+
+#toast_notification.active {
+    bottom: 30px;
+}
+
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+body {
+  background-color: var(--cor-back1);
+}
+
+main {
+  width: 100%;
+}
+
+.header-inner {
+  max-width: 900px;    
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+#menu {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 50;
+}
+
+#perfil {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 50;
+}
+
+#logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 520px) {
+  .header-inner { padding: 0 8px; }
+  .svg_logo { width: 72px; }
+  .icoG { font-size: 26px; }
+}
+
+
+
+
+
