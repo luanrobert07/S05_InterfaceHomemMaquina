@@ -490,27 +490,23 @@ main {
   .icoG { font-size: 26px; }
 }
 
-#modal_overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
+@media (min-width: 900px) {
+
+  #modal_overlay {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 20px;
+  }
+
+  #modal_content {
+      width: 600px !important;    
+      max-width: 600px !important;
+      border-radius: 12px;
+      margin: 0 auto;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      background: white;
+  }
 }
-
-#modal_content {
-  width: 600px;               
-  max-width: 90%;              
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  max-height: 85vh;
-  overflow-y: auto;
-  box-sizing: border-box;
-}
-
-
-
-
-
